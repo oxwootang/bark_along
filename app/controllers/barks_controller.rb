@@ -9,7 +9,7 @@ class BarksController < ApplicationController
     if @bark.save
       redirect_to root_path
     else
-      redirect_to users_index_path
+      redirect_to new_bark_path
     end
   end
 

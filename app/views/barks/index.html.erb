@@ -1,14 +1,15 @@
 <h1>Barks#Index Page</h1>
 
-<a href="/barks/new">Create a New Bark!</a>
-
-<div id='all-barks'>
-  <ul>
-    <%= @barks.each do |bark| %>
-      <li> <a href=<%=bark_path(bark)%>><%=bark.title%></a>
-      </li>
-    <% end %>
-  </ul>
+<div id='links'>
+  <a id='new-bark-link' href="/barks/new">Create a New Bark!</a>
 </div>
 
-<p> Yo </p>
+<div id='all-barks'>
+  <% if @barks %>
+    <% @barks.each do |bark| %>
+      <li class='li bark'>
+        <a class='list-bark-show-link' href=<%=bark_path(bark)%>><%=bark.title%></a>
+      </li>
+    <% end %>
+  <% end %>
+</div>
