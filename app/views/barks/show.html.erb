@@ -4,4 +4,7 @@
 <p class='bark-content'><%=@bark.content%></p>
 
 <%= link_to 'Edit this Bark!', edit_bark_path(@bark) %><br>
+<%= form_tag(bark_path(@bark), method: 'delete') do %>
+  <input type='submit' value='Delete this Bark?'>
+<% end %>
 <%= link_to 'All Barks', root_path %>
