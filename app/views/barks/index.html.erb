@@ -8,7 +8,10 @@
   <% if @barks %>
     <% @barks.each do |bark| %>
       <li class='li bark'>
-        <%= link_to "#{bark.title}", bark_path(bark) %>
+        <%= link_to "#{bark.title}", bark_path(bark) %> <br>
+        <%= form_tag(bark_path(bark), method: 'delete') do %>
+          <input type='submit' value='Delete this Bark?'>
+        <% end %>
       </li>
     <% end %>
   <% end %>
