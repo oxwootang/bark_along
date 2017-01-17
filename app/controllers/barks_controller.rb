@@ -18,20 +18,34 @@ class BarksController < ApplicationController
   end
 
   def edit
+    find_bark
   end
 
   def show
-    @bark = Bark.find(params[:id])
+    find_bark
   end
 
   def update
+    find_bark
+    if @bark.update_attributes(bark_params)
+      redirect_to bark_path(params[:id])
+    else
+      redirect_to edit_bark_path(params[:id])
+    end
   end
 
   def destroy
+    find_bark
+    @bark.destroy
+    redirect_to root_path
   end
 
   private
     def bark_params
       params.require(:bark).permit(:title, :location, :content)
+    end
+
+    def find_bark
+      @bark = Bark.find(params[:id])
     end
 end

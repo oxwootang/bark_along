@@ -8,7 +8,7 @@
   <% if @barks %>
     <% @barks.each do |bark| %>
       <li class='li bark'>
-        <a class='list-bark-show-link' href=<%=bark_path(bark)%>><%=bark.title%></a>
+        <%= link_to "#{bark.title}", bark_path(bark) %>
       </li>
     <% end %>
   <% end %>
