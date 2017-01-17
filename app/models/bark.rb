@@ -4,4 +4,6 @@ class Bark < ApplicationRecord
   validates :location, presence: true
   validates :content, presence: true
 
+  belongs_to :user
+
 end

@@ -4,6 +4,7 @@ class CreateBarks < ActiveRecord::Migration[5.0]
       t.text :title, null: false
       t.text :location, null: false
       t.text :content, null: false
+      t.references :user, null: false
 
       t.timestamps
     end

@@ -7,12 +7,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
-  validates :password_hash
+  validates :password_hash, presence: true
 
   has_many :barks
-
-  def index
-  end
 
   # Return a BCrypt password or make a new one out of password_hash
   def password

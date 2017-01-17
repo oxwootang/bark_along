@@ -1,1 +1,10 @@
 <h1>Users#Index Page</h1>
+
+<% if @users %>
+  <h2>List of Bark Along! Followers: </h2>
+  <ul id='all-users-list'>
+    <% @users.each do |user| %>
+      <li class='list-user-username'> <%=user.username%> </li>
+    <% end %>
+  </ul>
+<% end %>
