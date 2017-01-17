@@ -1,14 +1,18 @@
 <h1>Barks#Index Page</h1>
 
-<a href="/barks/new">Create a New Bark!</a>
-
-<div id='all-barks'>
-  <ul>
-    <%= @barks.each do |bark| %>
-      <li> <a href=<%=bark_path(bark)%>><%=bark.title%></a>
-      </li>
-    <% end %>
-  </ul>
+<div id='links'>
+  <a id='new-bark-link' href="/barks/new">Create a New Bark!</a>
 </div>
 
-<p> Yo </p>
+<div id='all-barks'>
+  <% if @barks %>
+    <% @barks.each do |bark| %>
+      <li class='li bark'>
+        <%= link_to "#{bark.title}", bark_path(bark) %> <br>
+        <%= form_tag(bark_path(bark), method: 'delete') do %>
+          <input type='submit' value='Delete this Bark?'>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</div>
