@@ -1,0 +1,14 @@
+<h1>Barks#Index Page</h1>
+
+<a href="/barks/new">Create a New Bark!</a>
+
+<div id='all-barks'>
+  <ul>
+    <%= @barks.each do |bark| %>
+      <li> <a href=<%=bark_path(bark)%>><%=bark.title%></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<p> Yo </p>
