@@ -2,10 +2,15 @@ class BarksController < ApplicationController
 
   def index
     @barks = Bark.all
+    if current_user
+      @user = current_user
+    end
   end
 
   def create
-    @bark = Bark.new(bark_params)
+    @user = current_user
+    @bark = @user.barks.new(bark_params)
+
     if @bark.save
       redirect_to root_path
     else
@@ -47,5 +52,13 @@ class BarksController < ApplicationController
 
     def find_bark
       @bark = Bark.find(params[:id])
+    end
+
+    def current_user
+      if session[:user_id]
+        @user = User.find(session[:user_id])
+      else
+        nil
+      end
     end
 end

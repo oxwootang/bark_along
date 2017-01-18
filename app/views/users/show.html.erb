@@ -1,1 +1,11 @@
 <h1>Welcome <%=@user.first_name%>!</h1>
+
+<ul id='users-barks-list'>
+  <% @user.barks.each do |bark| %>
+    <li><%= link_to bark.title, bark_path(bark) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Home', barks_path %><br>
+<%= link_to 'Sign Out', logout_path %><br>
+<%= link_to 'Create New Bark!', new_bark_path %>

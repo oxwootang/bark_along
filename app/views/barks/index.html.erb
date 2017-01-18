@@ -9,6 +9,7 @@
   <% else %>
   <section id='logged-in'>
     <h2>Welcome <%=current_user.username%>!</h2>
+    <%= link_to 'Your Profile', user_path(@user) %>
     <%= link_to 'Create a New Bark!', new_bark_path %><br>
     <%= link_to 'Sign Out', logout_path %>
   </section>
@@ -20,9 +21,6 @@
     <% @barks.each do |bark| %>
       <li class='li bark'>
         <%= link_to "#{bark.title}", bark_path(bark) %> <br>
-        <%= form_tag(bark_path(bark), method: 'delete') do %>
-          <input type='submit' value='Delete this Bark?'>
-        <% end %>
       </li>
     <% end %>
   <% end %>
