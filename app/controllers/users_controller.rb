@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.password = params[:user][:password_hash]
     if @user.save
-      redirect_to users_path
+      login(@user)
+      redirect_to root_path
     else
       redirect_to new_user_path
     end
@@ -50,4 +51,17 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    # Create a new session with user
+    def login(user)
+      session[:user_id] = user.id
+    end
+
+    # Return current user logged into session
+    def current_user
+      if session[:user_id]
+        User.find(session[:user_id])
+      else
+        nil
+      end
+    end
 end

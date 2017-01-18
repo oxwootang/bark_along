@@ -1,4 +1,4 @@
-module UsersHelper
+module SessionsHelper
 
   # Create a new session with user
   def login(user)
