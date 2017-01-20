@@ -1,29 +1,40 @@
+<div id='top'>
 <h1>Barks#Index Page</h1>
 
 <div id='links'>
   <% if !current_user %>
-  <section id='not-logged-in'>
-    <%= link_to 'Register New User', new_user_path %><br>
-    <%= link_to 'Sign-In Returning User', '/login' %><br>
-  </section>
+    <section id='not-logged-in'>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href=<%=new_user_path%>>Register New User!</a></li>
+        <li role='presentation'><a href='/login'>Sign-In Returning User!</a></li>
+      </ul>
+    </section>
   <% else %>
-  <section id='logged-in'>
-    <h2>Welcome <%=current_user.username%>!</h2>
-    <%= link_to 'Your Profile', user_path(@user) %>
-    <%= link_to 'Create a New Bark!', new_bark_path %><br>
-    <%= link_to 'Sign Out', logout_path %>
-  </section>
-  <% end %>
+    <section id='logged-in'>
+      <h2>Welcome <%=current_user.username%>!</h2>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href=<%=new_bark_path%>>Create a New BarK!</a></li>
+        <li role='presentation'><a href=<%=logout_path%>>Sign Out</li>
+      </ul>
+    </section>
+    <% end %>
+  </ul>
+</div>
 </div>
 
-<div class='parallax'></div>
 
-<div id='all-barks'>
+<div class="parallax"></div>
+
+<div>
   <% if @barks %>
+  <ul class='list-group'>
     <% @barks.each do |bark| %>
-      <li class='li bark'>
-        <%= link_to "#{bark.title}", bark_path(bark) %> <br>
+      <li class='list-group-item'>
+        <a href="/barks/<%=bark.id%>" class='list-group-item' ><%=bark.title%></a>
       </li>
     <% end %>
+  </ul>
   <% end %>
 </div>
+
+<div class="parallax-2"></div>

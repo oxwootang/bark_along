@@ -1,3 +1,5 @@
+require 'json'
+
 class BarksController < ApplicationController
 
   def index
@@ -28,6 +30,24 @@ class BarksController < ApplicationController
 
   def show
     find_bark
+    @url = "https://www.google.com/maps/embed/v1/place?key=#{ENV['G_E_MAP']}&q="
+    location = @bark.location
+    location_split = location.split(',')
+    terms = []
+    for elem in location_split
+      terms << elem.split(' ')
+    end
+    join = []
+    for term in terms
+      join << term.join('+')
+    end
+    to_query = join.flatten.join(',')
+    @url += to_query
+
+    # Initialize instance of wunderground ruby wrapper
+    # w_api = Wunderground.new
+    # @forecast = w_api.forecast_and_conditions_for("CA", "San Francsisco")
+
   end
 
   def update

@@ -4,6 +4,43 @@
     <title>BarkAlong</title>
     <%= csrf_meta_tags %>
 
+    <style>
+    body, html {
+      height: 100%;
+    }
+
+    #top {
+      position: fixed;
+    }
+
+    .parallax {
+      /* The image used */
+      background-image: url('https://img.clipartfox.com/19ace5d33098954ef59de9fde80f4f88_image-of-brown-and-white-dog-clipart-dog_311-386.jpeg');
+
+      /* Full height */
+      height: 50%;
+
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .parallax-2 {
+      /* The image used */
+      background-image: url('http://cdn.pcwallart.com/images/wu-tang-clan-wallpaper-4.jpg');
+
+      /* Full height */
+      height: 50%;
+
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    </style>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

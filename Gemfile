@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use Wunderground Ruby API wrapper to connect with Wunderground API
+gem 'wunderground'
 # Use BCrypt for user account security
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -39,6 +41,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Use dotenv for key security
+  gem 'dotenv-rails'
 end
 
 group :development do
